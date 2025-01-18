@@ -1,7 +1,6 @@
 import requests
 import json
 import csv
-import time
 
 # Constants
 API_URL = "https://api.openweathermap.org/data/2.5/weather"
@@ -61,15 +60,13 @@ def main():
         print("Saving data locally...")
         save_to_local(data, OUTPUT_FILE)
 
+        print("Extracting and saving specific data to CSV...")
+        extract_and_save_data()
+
         print("Process completed successfully!")
     except Exception as e:
         print(f"Error: {e}")
 
-# Run the main program and then schedule it to run every 2 minutes
+# Run the main program once
 if __name__ == "__main__":
     main()
-    
-    # Schedule the extraction and saving of data every 2 minutes
-    while True:
-        extract_and_save_data()
-        time.sleep(2)  # Wait for 2 minutes before running again
