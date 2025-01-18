@@ -2,12 +2,12 @@ name: Weather Data Fetcher
 
 on:
   schedule:
-    - cron: '*/60 * * * *'  # Runs every hour. Adjust the cron expression to your preferred schedule.
-  workflow_dispatch: # This allows manual triggering of the workflow.
+    - cron: '*/60 * * * *'  # Runs every hour
+  workflow_dispatch: # Manual trigger
 
 jobs:
   fetch_weather_data:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu environment for the runner.
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -25,6 +25,6 @@ jobs:
 
     - name: Run the weather fetcher script
       run: |
-        python api.py
+        python api/api.py  # Correct path to api.py inside the api folder
       env:
-        API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}  # Use GitHub Secrets for sensitive data.
+        API_KEY: "8de3885a43c2983c713269e2b4f26ac2"  # Replace with your OpenWeatherMap API key
