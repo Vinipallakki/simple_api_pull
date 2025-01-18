@@ -25,6 +25,6 @@ jobs:
 
     - name: Run the weather fetcher script
       run: |
-        python api/api.py  # Correct path to api.py inside the api folder
+        python api/api.py  # Ensure the path is correct relative to the repository root
       env:
         API_KEY: "8de3885a43c2983c713269e2b4f26ac2"  # Replace with your OpenWeatherMap API key
